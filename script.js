@@ -1,10 +1,13 @@
 const arrayGrid = document.getElementById('array-grid');
-const bubbleSelect = document.getElementById('select');
-const bubbelInput = document.getElementById('numberHold');
+const bubbleSelect = document.getElementById('select-b');
+const bubbelInput = document.getElementById('numberHold-b');
 
 let sorted = new Set();
 
+
 bubbleSelect.addEventListener('click', ()=>{
+    sorted.clear();
+    bubbleSelect.disabled = true;
     bubbleSort(arrayGen(bubbelInput.value));
 })
 
@@ -35,29 +38,29 @@ function bubbleSort(array) {
 
                     j++;
                     setTimeout(step, 400); 
-                }, 500); 
+                }, 300); 
             } else {
-                sorted.add(array[array.length - 1 - i]);
+                sorted.add(array.length - 1 - i);
+                console.log(array.length - i - 1)
                 console.log('Sorted elements:', sorted);
-                console.log('2');
 
                 if (swapped || i < array.length - 1) {
                     j = 0;
                     i++; 
                     if(i == array.length -1){
-                        sorted.add(array[array.length - 1 - i]);
+                        sorted.add(array.length - 1 - i);
                     }
                     createGrid(array, j, j + 1, false);
-                    setTimeout(step, 100); 
-                } else {
-                    createGrid(array, j, j + 1, false);
-                    console.log('Sorting complete');
-                    return;
-                }
+
+                    setTimeout(step, 200); 
+                    if(sorted.size == array.length){
+                        bubbleSelect.disabled = false;
+                    }
+
+                } 
             }
         }
     }
-
     setTimeout(step, 100); 
 }
 
@@ -69,10 +72,9 @@ function swap(x, y) {
 }
 
 function createGrid(array, green, yellow, swap) {
-    // console.log('grid create')
 
     arrayGrid.replaceChildren();
-
+    
     for (let i = 0; i < array.length; i++) {
         let myDiv = document.createElement('div');
         myDiv.classList.add('number');
@@ -95,12 +97,14 @@ function createGrid(array, green, yellow, swap) {
             }
         }
 
-        if (sorted.has(array[i])) {
+        if (sorted.has(i)) {
             myDiv.id = 'sorted'; 
         }
+        
         myDiv.append(para);
         arrayGrid.append(myDiv);
     }
+    
 }
 
 function arrayGen(number) {

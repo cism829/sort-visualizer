@@ -10,7 +10,10 @@ body{
 
 #sort{
     display: flex;
-    flex: direction;
+    flex-direction: column;
+    justify-content:  center;
+
+    /* background-color: brown; */
 }
 
 .sort-container{
@@ -30,13 +33,14 @@ body{
     justify-self: center;
 }
 
-#numberHold{
+
+input{
     float: left;
     margin: 0;
     width: 20px;
 }
 
-#select{
+.startBtn button{
     float: left;
     margin: 0;
 }
