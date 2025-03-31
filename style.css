@@ -1,0 +1,85 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: lightblue;
+    color: white;
+}
+
+.title{
+    justify-self: center;
+}
+
+#sort{
+    display: flex;
+    flex: direction;
+}
+
+.sort-container{
+    display: flex;
+    flex-direction: row;
+    /* background-color: aquamarine; */
+    gap: 10px;
+    width: 100%
+
+}
+
+.sort-details{
+    /* background-color: orange; */
+}
+
+.startBtn{
+    justify-self: center;
+}
+
+#numberHold{
+    float: left;
+    margin: 0;
+    width: 20px;
+}
+
+#select{
+    float: left;
+    margin: 0;
+}
+
+#array-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+    /* background-color: yellow; */
+
+}
+
+.number{
+    border: 1px solid black ;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+}
+
+#target{
+    background-color: green;
+    color:white;
+}
+
+#compare{
+    background-color: yellow;
+}
+
+#swap{
+    background-color: blue;
+}
+
+#less{
+    background-color: red;
+}
+
+#sorted{
+    background-color: darkcyan;
+}
